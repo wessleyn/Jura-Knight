@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://0camdomybd42"]
+[gd_scene load_steps=3 format=3 uid="uid://0camdomybd42"]
 
 [ext_resource type="Script" uid="uid://wq4xcq8bta45" path="res://scripts/kill_zone.gd" id="1_kebdr"]
-[ext_resource type="Script" uid="uid://d1qqs8tn6goa8" path="res://scripts/game_manager.gd" id="2_koymq"]
 [ext_resource type="FontFile" uid="uid://dsiqyjrivv6bh" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_a50cx"]
 
 [node name="Kill Zone" type="Area2D"]
@@ -11,7 +10,6 @@ script = ExtResource("1_kebdr")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="GameOverCanvas" type="CanvasLayer" parent="."]
-script = ExtResource("2_koymq")
 
 [node name="GameOverLabel" type="Label" parent="GameOverCanvas"]
 visible = false

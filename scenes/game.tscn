@@ -487,7 +487,6 @@ position = Vector2(653, 120)
 
 [node name="GameManager" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-visible = false
 script = ExtResource("8_0tnpc")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
