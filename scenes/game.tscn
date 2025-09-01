@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://4my5sgqwp2fc"]
+[gd_scene load_steps=21 format=4 uid="uid://4my5sgqwp2fc"]
 
 [ext_resource type="PackedScene" uid="uid://c3dbitunc64j5" path="res://scenes/knight.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://b2dq03tyb15qm" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d351s18ale124" path="res://scenes/slime.tscn" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://d1qqs8tn6goa8" path="res://scripts/game_manager.gd" id="8_0tnpc"]
 [ext_resource type="FontFile" uid="uid://dsiqyjrivv6bh" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="8_gee14"]
+[ext_resource type="FontFile" uid="uid://bf0ogr1j2lrcy" path="res://assets/fonts/PixelOperator8.ttf" id="10_vtaks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -463,6 +464,27 @@ position = Vector2(200, 42)
 
 [node name="Coin7" parent="Coins" instance=ExtResource("5_iywne")]
 position = Vector2(200, 26)
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Labels"]
+offset_left = 441.0
+offset_top = 135.0
+offset_right = 595.0
+offset_bottom = 158.0
+theme_override_fonts/font = ExtResource("10_vtaks")
+theme_override_font_sizes/font_size = 8
+text = "Don't Fall"
+
+[node name="Label2" type="Label" parent="Labels"]
+offset_left = 800.0
+offset_top = -16.0
+offset_right = 968.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("10_vtaks")
+theme_override_font_sizes/font_size = 8
+text = "Almost there!
+"
 
 [node name="Knight" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(112, 104)

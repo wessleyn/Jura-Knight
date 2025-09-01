@@ -10,8 +10,9 @@ func _ready():
 	updateScore()
 	
 func updateScore ():
-	score_label.text = "Highest Score: " + str(Global.high_score) + "\nScore: " + str(score)  +  "\nCoins: " + str(coins) 
-	
+	score_label.text = "Highest Score: %d\nScore: %d\nCoins: %d" % [
+		Global.high_score, score, coins
+	]
 func addPoint():
 	score += 1
 	if score >= Global.high_score:
