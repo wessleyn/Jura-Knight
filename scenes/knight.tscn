@@ -44,6 +44,7 @@ radius = 5.0
 
 [node name="Knight" type="CharacterBody2D"]
 z_index = 5
+collision_layer = 2
 script = ExtResource("1_3i0j8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
