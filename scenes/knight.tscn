@@ -44,9 +44,10 @@ radius = 5.0
 [node name="Knight" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(14, -13)
+position = Vector2(1, -13)
 sprite_frames = SubResource("SpriteFrames_swm0g")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
