@@ -482,6 +482,3 @@ shape = SubResource("WorldBoundaryShape2D_u5sy4")
 
 [node name="Slime" parent="." instance=ExtResource("7_u5sy4")]
 position = Vector2(666, 132)
-
-[node name="Slime2" parent="." instance=ExtResource("7_u5sy4")]
-position = Vector2(147, 120)
