@@ -1,22 +1,16 @@
 extends CharacterBody2D
 
-
 const SPEED = 130.0
+const SHIP_SPEED = 150
 const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var ship: AnimatableBody2D = $"../Ship"
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
+func enableMovement(direction):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
-	# Get the Knight direction -1 (left)  and 1 (right)
-	var direction := Input.get_axis("move_left", "move_right")
-	
 	# Flip The Knight Direction
 	if direction > 0: # moving to the right
 		animated_sprite.flip_h = false # move to the left
@@ -37,4 +31,18 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	move_and_slide()
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
+	# Get the Knight direction -1 (left)  and 1 (right)
+	var direction := Input.get_axis("move_left", "move_right")
+	
+	if Global.onShip and bool(direction):
+		ship.position.x  +=  direction * SHIP_SPEED *  delta
+		position.x += direction * SHIP_SPEED * delta 
+		#ship.move_and_collide(velocity)
+	else:
+		enableMovement(direction)
+		move_and_slide()
