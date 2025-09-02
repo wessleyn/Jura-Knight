@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2e3tlsmhsflj"]
+[gd_scene load_steps=4 format=3 uid="uid://d2e3tlsmhsflj"]
 
+[ext_resource type="Script" uid="uid://dirj0keeyknjd" path="res://scripts/ship.gd" id="1_2gnfn"]
 [ext_resource type="Texture2D" uid="uid://bfph26eqbyi7y" path="res://assets/images/ship.png" id="1_q631a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q631a"]
@@ -9,6 +10,7 @@ height = 96.0186
 [node name="Ship" type="AnimatableBody2D"]
 collision_layer = 3
 sync_to_physics = false
+script = ExtResource("1_2gnfn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(5.99999, -19)
@@ -24,7 +26,7 @@ shape = SubResource("CapsuleShape2D_q631a")
 
 [node name="RayRight" type="RayCast2D" parent="."]
 position = Vector2(0, -1)
-target_position = Vector2(52, 0)
+target_position = Vector2(120, 0)
 
 [node name="RayLeft" type="RayCast2D" parent="."]
 position = Vector2(-1, -1)

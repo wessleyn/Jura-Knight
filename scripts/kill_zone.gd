@@ -11,4 +11,6 @@ func _on_body_entered(knight: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	Engine.time_scale = 1.0
+	Global.shipDocked = false
+	Global.onShip = true
 	get_tree().reload_current_scene() # reload the game

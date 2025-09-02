@@ -39,10 +39,9 @@ func _physics_process(delta: float) -> void:
 	# Get the Knight direction -1 (left)  and 1 (right)
 	var direction := Input.get_axis("move_left", "move_right")
 	
-	if Global.onShip and bool(direction):
+	if Global.onShip and bool(direction) and !Global.shipDocked:
 		ship.position.x  +=  direction * SHIP_SPEED *  delta
 		position.x += direction * SHIP_SPEED * delta 
-		#ship.move_and_collide(velocity)
 	else:
 		enableMovement(direction)
 		move_and_slide()
