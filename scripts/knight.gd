@@ -56,7 +56,6 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	# increase score based on world exploration
 	if(position.x > prevPosition): 
-		print("reached, previous : ", prevPosition, " new : ", position.x)
 		game_manager.addPoint(0.125)
 		prevPosition = position.x #mark new highest distance reached
 	
