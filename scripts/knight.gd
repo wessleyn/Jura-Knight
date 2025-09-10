@@ -4,8 +4,12 @@ const SPEED = 130.0
 const SHIP_SPEED = 150
 const JUMP_VELOCITY = -300.0
 
+var prevPosition = 0
+
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var ship: AnimatableBody2D = $"../Ship"
+@onready var game_manager: CanvasLayer = %GameManager
+
 
 func enableMovement(direction):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -30,6 +34,11 @@ func enableMovement(direction):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+
+func _ready() -> void:
+	#mark the starting point as the highest distance moved
+	prevPosition = position.x
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -45,3 +54,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		enableMovement(direction)
 		move_and_slide()
+	# increase score based on world exploration
+	if(position.x > prevPosition): 
+		print("reached, previous : ", prevPosition, " new : ", position.x)
+		game_manager.addPoint(0.125)
+		prevPosition = position.x #mark new highest distance reached
+	

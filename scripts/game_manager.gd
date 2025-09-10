@@ -11,18 +11,16 @@ func _ready():
 	
 func updateScore ():
 	score_label.text = "Highest Score: %d\nScore: %d\nCoins: %d" % [
-		Global.high_score, score, coins
+		int(Global.high_score), int(score), coins
 	]
-func addPoint():
-	score += 1
-	if score >= Global.high_score:
-		setHighestScore()
+func addPoint(point):
+	score += point
+	if score >= Global.high_score: Global.high_score = score
+
 		
 	updateScore()
 
 func addCoin():
 	coins += 1
-	addPoint()
+	addPoint(5)
 	
-func setHighestScore():
-	Global.high_score = score
