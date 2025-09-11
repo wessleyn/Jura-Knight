@@ -49,5 +49,5 @@ func takeDamage(point):
 	
 func takeHealing(point):
 	health += point
-	if(health >= 0): pass #change health bar from green to purple
+	if(health >= 0): pass # TODO: hange health bar from green to purple
 	updateStats()

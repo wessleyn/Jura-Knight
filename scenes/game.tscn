@@ -617,9 +617,9 @@ position = Vector2(200, 42)
 [node name="Coin7" parent="Coins" instance=ExtResource("5_iywne")]
 position = Vector2(200, 26)
 
-[node name="Labels" type="Node" parent="."]
+[node name="Info Labels" type="Node" parent="."]
 
-[node name="Label" type="Label" parent="Labels"]
+[node name="Label" type="Label" parent="Info Labels"]
 offset_left = 441.0
 offset_top = 135.0
 offset_right = 595.0
@@ -628,7 +628,7 @@ theme_override_fonts/font = ExtResource("10_vtaks")
 theme_override_font_sizes/font_size = 8
 text = "Don't Fall"
 
-[node name="Label2" type="Label" parent="Labels"]
+[node name="Label2" type="Label" parent="Info Labels"]
 offset_left = 800.0
 offset_top = -16.0
 offset_right = 968.0
@@ -663,13 +663,18 @@ position = Vector2(328, 122)
 [node name="Water Vase" parent="Water Vases" instance=ExtResource("14_trtic")]
 position = Vector2(-343, 167)
 
-[node name="Node" type="Node" parent="."]
+[node name="Healing Vases" type="Node" parent="."]
 
-[node name="Green Vase" parent="Node" instance=ExtResource("9_ir15t")]
+[node name="Green Vase" parent="Healing Vases" instance=ExtResource("9_ir15t")]
 position = Vector2(203, 132)
 
-[node name="Green Vase2" parent="Node" instance=ExtResource("9_ir15t")]
+[node name="Green Vase2" parent="Healing Vases" instance=ExtResource("9_ir15t")]
 position = Vector2(216, -14)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Slime" parent="Enemies" instance=ExtResource("7_u5sy4")]
+position = Vector2(653, 120)
 
 [node name="Knight" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(-1325, 128)
@@ -690,9 +695,6 @@ position = Vector2(64, 232)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Zone"]
 position = Vector2(-20, -75)
 shape = SubResource("WorldBoundaryShape2D_u5sy4")
-
-[node name="Slime" parent="." instance=ExtResource("7_u5sy4")]
-position = Vector2(653, 120)
 
 [node name="GameManager" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -729,6 +731,3 @@ theme_override_font_sizes/font_size = 32
 text = "Coins: 0
 Health: 100
 Thirst: 0"
-
-[node name="Green Vase" parent="." instance=ExtResource("9_ir15t")]
-position = Vector2(-1059, 126)
