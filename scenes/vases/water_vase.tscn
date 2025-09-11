@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://du1eg6cexuhna"]
 
-[ext_resource type="Script" uid="uid://dw6ehb125nori" path="res://scripts/coin.gd" id="1_ou7yw"]
+[ext_resource type="Script" uid="uid://bvbw5jxl0glo" path="res://scripts/water_vase.gd" id="1_ou7yw"]
 [ext_resource type="Texture2D" uid="uid://b2dq03tyb15qm" path="res://assets/sprites/world_tileset.png" id="2_u8w3b"]
 [ext_resource type="AudioStream" uid="uid://vfsu7t2h7faj" path="res://assets/sounds/coin.wav" id="3_y85lb"]
 

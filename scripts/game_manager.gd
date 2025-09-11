@@ -5,7 +5,7 @@ extends CanvasLayer
 
 var score = 0
 var coins = 0
-var health = 0
+var health = 100
 var thirst = 0
 
 func _ready():
@@ -37,6 +37,11 @@ func increaseThirst(point):
 	thirst += point
 	updateStats()
 	
+func relieveThirst(point):
+	# TODO: increase movement speed as thirst  lowers
+	thirst -= point
+	updateStats()
+	
 func takeDamage(point):
 	health -= point
 	updateStats()
@@ -44,5 +49,5 @@ func takeDamage(point):
 	
 func takeHealing(point):
 	health += point
-	if(health >= 0): health = 100 #or change health from green to purple
+	if(health >= 0): pass #change health bar from green to purple
 	updateStats()
