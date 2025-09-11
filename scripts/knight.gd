@@ -5,6 +5,7 @@ const SHIP_SPEED = 150
 const JUMP_VELOCITY = -300.0
 
 var prevPosition = 0
+var highestPosition = 0
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var ship: AnimatableBody2D = $"../Ship"
@@ -38,7 +39,8 @@ func enableMovement(direction):
 
 func _ready() -> void:
 	#mark the starting point as the highest distance moved
-	prevPosition = position.x
+	highestPosition = position.x
+	prevPosition = highestPosition
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -54,8 +56,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		enableMovement(direction)
 		move_and_slide()
-	# increase score based on world exploration
-	if(position.x > prevPosition): 
-		game_manager.addPoint(0.125)
-		prevPosition = position.x #mark new highest distance reached
 	
+	if(position.x > highestPosition): 
+		game_manager.addPoint(0.125) # increase score based on world exploration
+		highestPosition = position.x #mark new highest position reached
+	
+	if(position.x != prevPosition):
+		# increase thirst by distance 'moved' irregardless of direction
+		game_manager.increaseThirst(0.0625) 
+		prevPosition = position.x # mark the new previous position 

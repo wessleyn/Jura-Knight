@@ -670,15 +670,36 @@ unique_name_in_owner = true
 script = ExtResource("8_0tnpc")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
-offset_right = 160.0
-offset_bottom = 54.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 470.0
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_gee14")
 theme_override_font_sizes/font_size = 32
 text = "Highest Score: 0
 Score: 0 
-Coins: 0"
+"
+
+[node name="GameStats" type="Label" parent="GameManager"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -326.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 112.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 32
+text = "Coins: 0
+Health: 100
+Thirst: 0"
 
 [node name="BigWinterPlatform" parent="." instance=ExtResource("8_kvpfn")]
 position = Vector2(-552, 144)
