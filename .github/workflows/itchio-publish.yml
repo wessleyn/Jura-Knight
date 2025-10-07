@@ -22,10 +22,20 @@ jobs:
           archive_output: true
           cache: true
 
+      - name: Debug Export Output
+        run: |
+          echo "Export directory: ${{ steps.export.outputs.archive_directory }}"
+          ls -la ${{ steps.export.outputs.archive_directory }}
+          
+      - name: Copy Web Build to Workspace
+        run: |
+          mkdir -p ./build
+          cp ${{ steps.export.outputs.archive_directory }}/jura-knight-web.zip ./build/
+
       - name: Publish to Itch.io
         uses: robpc/itchio-upload-action@v1
         with:
-          path: ${{ steps.export.outputs.archive_directory }}/jura-knight-web.zip
+          path: ./build/jura-knight-web.zip
           project: wessleyn/jura-knight
           channel: web
           version: ${{ github.ref_name }}
