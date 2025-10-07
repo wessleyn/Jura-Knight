@@ -14,7 +14,7 @@ jobs:
         id: export
         uses: firebelley/godot-export@v5.2.1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
           godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
           relative_project_path: ./
@@ -28,3 +28,10 @@ jobs:
             itch_game: jura-knight
             version: ${{ github.ref_name }}
             files: "${{ steps.export.outputs.archive_directory }}/jura-web.zip"
+      - name: create release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            generateReleaseNotes: true
+            tag: ${{ github.ref_name }}
+            artifacts: ${{ steps.export.outputs.archive_directory }}/*
