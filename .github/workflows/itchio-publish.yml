@@ -23,11 +23,11 @@ jobs:
           cache: true
 
       - name: Publish to Itch.io
-        uses: yeslayla/butler-publish-itchio-action@master
+        uses: robpc/itchio-upload-action@v1
         with:
-          BUTLER_CREDENTIALS: ${{ secrets.ITCHIO_TOKEN }}
-          CHANNEL: web
-          VERSION: ${{ github.ref_name }}
-          ITCH_GAME: jura-knight
-          ITCH_USER: wessleyn
+          path: ${{ steps.export.outputs.archive_directory }}/jura-knight-web.zip
+          project: jura-knight
+          channel: web
+          version: ${{ github.ref_name }}
+          api-key: ${{ secrets.ITCHIO_TOKEN }}
           PACKAGE: "${{ steps.export.outputs.archive_directory }}/jura-knight-web.zip"
