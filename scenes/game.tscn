@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://4my5sgqwp2fc"]
+[gd_scene load_steps=38 format=4 uid="uid://4my5sgqwp2fc"]
 
 [ext_resource type="PackedScene" uid="uid://c3dbitunc64j5" path="res://scenes/knight.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://b2dq03tyb15qm" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://7jnbo8q5oan2" path="res://assets/horizontal bars/medium rounded/progress bar medium rounded progress dark green.png" id="18_37s47"]
 [ext_resource type="Texture2D" uid="uid://dnm63mf23pt0f" path="res://assets/horizontal bars/medium rounded/progress bar medium rounded progress dark grey.png" id="19_bt5mj"]
 [ext_resource type="Texture2D" uid="uid://d671x00fs5tu" path="res://assets/horizontal bars/medium rounded/progress bar medium rounded progress blue.png" id="20_e1j6l"]
+[ext_resource type="Texture2D" uid="uid://fx8u04r6nvm8" path="res://assets/sprites/coin.png" id="21_5newe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -706,10 +707,15 @@ unique_name_in_owner = true
 script = ExtResource("8_0tnpc")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 470.0
-offset_bottom = 112.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -468.0
+offset_top = 9.0
+offset_right = -8.0
+offset_bottom = 111.0
+grow_horizontal = 0
+pivot_offset = Vector2(2, 5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -718,16 +724,17 @@ theme_override_font_sizes/font_size = 32
 text = "Highest Score: 0
 Score: 0 
 "
+horizontal_alignment = 2
 
 [node name="ProgressBars" type="Node" parent="GameManager"]
 
 [node name="Health" type="TextureProgressBar" parent="GameManager/ProgressBars"]
-offset_left = 202.0
-offset_top = 181.0
-offset_right = 234.0
-offset_bottom = 190.0
+offset_left = 231.0
+offset_top = 69.0
+offset_right = 263.0
+offset_bottom = 78.0
 rotation = 3.14159
-scale = Vector2(6, 6)
+scale = Vector2(7, 7)
 step = 0.5
 value = 70.0
 texture_under = ExtResource("16_1kice")
@@ -735,14 +742,37 @@ texture_over = ExtResource("17_5newe")
 texture_progress = ExtResource("18_37s47")
 
 [node name="Thirst" type="TextureProgressBar" parent="GameManager/ProgressBars"]
-offset_left = 202.0
-offset_top = 233.0
-offset_right = 234.0
-offset_bottom = 242.0
+offset_left = 230.0
+offset_top = 141.0
+offset_right = 262.0
+offset_bottom = 150.0
 rotation = 3.14159
-scale = Vector2(6, 6)
+scale = Vector2(7, 7)
 step = 0.5
 value = 70.0
 texture_under = ExtResource("20_e1j6l")
 texture_over = ExtResource("17_5newe")
 texture_progress = ExtResource("19_bt5mj")
+
+[node name="Coin" type="Node" parent="GameManager"]
+
+[node name="Coin" type="Sprite2D" parent="GameManager/Coin"]
+position = Vector2(35, 181)
+scale = Vector2(4, 4)
+texture = ExtResource("21_5newe")
+region_enabled = true
+region_rect = Rect2(0, 0, 17, 16)
+
+[node name="Coin Label" type="Label" parent="GameManager/Coin"]
+offset_left = 66.0
+offset_top = 167.0
+offset_right = 187.0
+offset_bottom = 269.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 32
+text = "100
+
+"

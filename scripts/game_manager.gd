@@ -1,11 +1,9 @@
 extends CanvasLayer
 
 @onready var score_label: Label = $ScoreLabel
-@onready var game_stats: Label = $GameStats
+@onready var coin_label: Label = $"Coin/Coin Label"
 @onready var health_bar: TextureProgressBar = $ProgressBars/Health
 @onready var thirst_bar: TextureProgressBar = $ProgressBars/Thirst
-
-
 
 var score = 0
 var coins = 0
@@ -17,13 +15,14 @@ func _ready():
 	updateStats()
 	
 func updateScore ():
-	score_label.text = "Highest Score: %d\nScore: %d\nCoins: %d" % [
-		int(Global.high_score), int(score), int(coins)
+	score_label.text = "Highest Score: %d\nScore: %d" % [
+		int(Global.high_score), int(score)
 	]
 
 func updateStats():
 	health_bar.value = int(health)
 	thirst_bar.value = int(thirst)
+	coin_label.text = str(coins)
 
 func addPoint(point):
 	score += point
