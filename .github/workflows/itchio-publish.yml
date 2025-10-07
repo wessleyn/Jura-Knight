@@ -3,9 +3,11 @@ name: Publish to Itch.io
 on:
   push:
     branches: ["main"]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
@@ -19,12 +21,13 @@ jobs:
           relative_project_path: ./
           archive_output: true
           cache: true
-      - name: Publish to Itch
-        uses: Ayowel/butler-to-itch@v1.0.0
+
+      - name: Publish to Itch.io
+        uses: KikimoraGames/itch-publish@v1
         with:
-          allow_redirects: true
-          butler_key: ${{ secrets.ITCHIO_TOKEN }}
-          itch_user: wessleyn
-          itch_game: jura-knight
+          user: wessleyn
+          game: jura-knight
+          api-key: ${{ secrets.ITCHIO_TOKEN }}
+          files: "${{ steps.export.outputs.archive_directory }}/jura-knight-web.zip"
+          channel: web
           version: ${{ github.ref_name }}
-          files: "${{ steps.export.outputs.archive_directory }}/jura-web.zip"
