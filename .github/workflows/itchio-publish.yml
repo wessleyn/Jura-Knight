@@ -23,11 +23,11 @@ jobs:
           cache: true
 
       - name: Publish to Itch.io
-        uses: KikimoraGames/itch-publish@v1
+        uses: yeslayla/butler-publish-itchio-action@master
         with:
-          user: wessleyn
-          game: jura-knight
-          api-key: ${{ secrets.ITCHIO_TOKEN }}
-          files: "${{ steps.export.outputs.archive_directory }}/jura-knight-web.zip"
-          channel: web
-          version: ${{ github.ref_name }}
+          BUTLER_CREDENTIALS: ${{ secrets.ITCHIO_TOKEN }}
+          CHANNEL: web
+          VERSION: ${{ github.ref_name }}
+          ITCH_GAME: jura-knight
+          ITCH_USER: wessleyn
+          PACKAGE: "${{ steps.export.outputs.archive_directory }}/jura-knight-web.zip"
