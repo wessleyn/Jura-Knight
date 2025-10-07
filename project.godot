@@ -13,7 +13,9 @@ config_version=5
 config/name="Jura Knight"
 run/main_scene="uid://bb3nhlcby07ed"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.0457854, 0.166012, 0.117356, 1)
+boot_splash/image="uid://dd4n5i4uklqs3"
+config/icon="uid://dbbemw5jnmmx3"
 
 [autoload]
 
