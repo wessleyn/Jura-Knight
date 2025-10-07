@@ -169,7 +169,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -307,9 +307,10 @@ script = ExtResource("1_3i0j8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -13)
 sprite_frames = SubResource("SpriteFrames_swm0g")
-animation = &"run"
+animation = &"death"
 autoplay = "idle"
-frame_progress = 0.330348
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -7)
@@ -318,4 +319,5 @@ shape = SubResource("CircleShape2D_k2txo")
 [node name="Healing" parent="." instance=ExtResource("3_qxgmm")]
 position = Vector2(2, -2)
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="Healing" to="." method="_on_healing_animation_finished"]

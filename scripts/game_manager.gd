@@ -21,7 +21,7 @@ func updateScore ():
 
 func updateStats():
 	health_bar.value = int(health)
-	thirst_bar.value = int(thirst)
+	thirst_bar.value = int(thirst + 1)
 	coin_label.text = str(coins)
 
 func addPoint(point):

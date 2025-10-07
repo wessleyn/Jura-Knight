@@ -13,10 +13,17 @@ script = ExtResource("1_kebdr")
 
 [node name="GameOverLabel" type="Label" parent="GameOverCanvas"]
 visible = false
-offset_left = 301.0
-offset_top = 144.0
-offset_right = 853.0
-offset_bottom = 333.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -94.5
+offset_right = 276.0
+offset_bottom = 94.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
