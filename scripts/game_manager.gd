@@ -1,9 +1,9 @@
 extends CanvasLayer
 
 @onready var score_label: Label = $ScoreLabel
-@onready var coin_label: Label = $"Coin/Coin Label"
-@onready var health_bar: TextureProgressBar = $ProgressBars/Health
-@onready var thirst_bar: TextureProgressBar = $ProgressBars/Thirst
+@onready var coin_label: Label = $"Coin Label"
+@onready var thirst_bar: TextureProgressBar = $ThirstBar
+@onready var health_bar: TextureProgressBar = $HealthBar
 
 var score = 0
 var coins = 0

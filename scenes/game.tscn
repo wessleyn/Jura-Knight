@@ -1,5 +1,6 @@
-[gd_scene load_steps=38 format=4 uid="uid://4my5sgqwp2fc"]
+[gd_scene load_steps=39 format=4 uid="uid://4my5sgqwp2fc"]
 
+[ext_resource type="Script" uid="uid://bn6nwgqe7hv8m" path="res://scripts/game.gd" id="1_37s47"]
 [ext_resource type="PackedScene" uid="uid://c3dbitunc64j5" path="res://scenes/knight.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://b2dq03tyb15qm" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cpux53k7attbq" path="res://scenes/platforms/green_platform.tscn" id="3_u5sy4"]
@@ -481,6 +482,7 @@ _data = {
 distance = -39.0
 
 [node name="Game" type="Node"]
+script = ExtResource("1_37s47")
 
 [node name="Layers" type="Node" parent="."]
 
@@ -704,6 +706,7 @@ shape = SubResource("WorldBoundaryShape2D_u5sy4")
 
 [node name="GameManager" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+visible = false
 script = ExtResource("8_0tnpc")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
@@ -726,9 +729,7 @@ Score: 0
 "
 horizontal_alignment = 2
 
-[node name="ProgressBars" type="Node" parent="GameManager"]
-
-[node name="Health" type="TextureProgressBar" parent="GameManager/ProgressBars"]
+[node name="HealthBar" type="TextureProgressBar" parent="GameManager"]
 offset_left = 6.0
 offset_top = 22.0
 offset_right = 38.0
@@ -740,7 +741,7 @@ texture_under = ExtResource("16_1kice")
 texture_over = ExtResource("17_5newe")
 texture_progress = ExtResource("18_37s47")
 
-[node name="Thirst" type="TextureProgressBar" parent="GameManager/ProgressBars"]
+[node name="ThirstBar" type="TextureProgressBar" parent="GameManager"]
 offset_left = 230.0
 offset_top = 141.0
 offset_right = 262.0
@@ -753,16 +754,14 @@ texture_under = ExtResource("20_e1j6l")
 texture_over = ExtResource("17_5newe")
 texture_progress = ExtResource("19_bt5mj")
 
-[node name="Coin" type="Node" parent="GameManager"]
-
-[node name="Coin" type="Sprite2D" parent="GameManager/Coin"]
+[node name="Coin Sprite" type="Sprite2D" parent="GameManager"]
 position = Vector2(35, 181)
 scale = Vector2(4, 4)
 texture = ExtResource("21_5newe")
 region_enabled = true
 region_rect = Rect2(0, 0, 17, 16)
 
-[node name="Coin Label" type="Label" parent="GameManager/Coin"]
+[node name="Coin Label" type="Label" parent="GameManager"]
 offset_left = 66.0
 offset_top = 167.0
 offset_right = 187.0
