@@ -7,7 +7,7 @@ extends CanvasLayer
 
 var score = 0
 var coins = 0
-var health = 100
+var health = 50
 var thirst = 0
 
 func _ready():

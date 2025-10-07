@@ -1,8 +1,8 @@
 extends Area2D
 
 @onready var game_manager: CanvasLayer = %GameManager
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _on_body_entered(body: Node2D) -> void:
 	game_manager.relieveThirst(30)
-	self.queue_free()
-	#body.get_node("AnimationPlayer").play("Quenched")
+	animation_player.play("drink")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://n11mq6e47npl"]
 
-[ext_resource type="AudioStream" uid="uid://cq7eobb43k6i8" path="res://assets/music/time_for_adventure.mp3" id="1_05ggv"]
+[ext_resource type="AudioStream" uid="uid://bd2ts7nc0g3f0" path="res://assets/sounds/knight-sound.mp3" id="1_05ggv"]
 
 [node name="Music" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_05ggv")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8gfs8bo42wpu" path="res://scripts/green_vase.gd" id="1_43yfa"]
 [ext_resource type="Texture2D" uid="uid://b2dq03tyb15qm" path="res://assets/sprites/world_tileset.png" id="2_quu4l"]
-[ext_resource type="AudioStream" uid="uid://vfsu7t2h7faj" path="res://assets/sounds/coin.wav" id="3_ancm3"]
+[ext_resource type="AudioStream" uid="uid://bu4uo32bm0iyx" path="res://assets/sounds/healing.mp3" id="3_43yfa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0o17"]
 radius = 3.0
@@ -119,7 +119,7 @@ region_rect = Rect2(3, 113, 10, 16)
 shape = SubResource("CapsuleShape2D_s0o17")
 
 [node name="Pickup Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_ancm3")
+stream = ExtResource("3_43yfa")
 bus = &"SFX "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

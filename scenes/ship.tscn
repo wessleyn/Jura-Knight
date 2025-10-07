@@ -8,7 +8,7 @@ radius = 15.9845
 height = 96.0186
 
 [node name="Ship" type="AnimatableBody2D"]
-collision_layer = 3
+collision_mask = 3
 sync_to_physics = false
 script = ExtResource("1_2gnfn")
 

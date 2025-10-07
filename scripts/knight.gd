@@ -10,7 +10,7 @@ var highestPosition = 0
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var ship: AnimatableBody2D = $"../Ship"
 @onready var game_manager: CanvasLayer = %GameManager
-
+@onready var healing: AnimatedSprite2D = $Healing
 
 func enableMovement(direction):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -58,10 +58,21 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	
 	if(position.x > highestPosition): 
-		game_manager.addPoint(0.125) # increase score based on world exploration
-		highestPosition = position.x #mark new highest position reached
+		game_manager.addPoint(0.125) 
+		highestPosition = position.x
 	
 	if(position.x != prevPosition):
 		# increase thirst by distance 'moved' irregardless of direction
 		game_manager.increaseThirst(0.0625) 
 		prevPosition = position.x # mark the new previous position 
+
+var tookHealing = false
+
+func takeHealing():
+	healing.play("healing") 
+	tookHealing = true
+
+func _on_healing_animation_finished() -> void:
+	if(tookHealing):
+		healing.play("normal")  
+		tookHealing = false

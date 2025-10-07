@@ -570,13 +570,13 @@ position = Vector2(-302, 89)
 position = Vector2(-302, 128)
 
 [node name="Coin24" parent="Coins" instance=ExtResource("5_iywne")]
-position = Vector2(-861, 142)
+position = Vector2(-872, 124)
 
 [node name="Coin25" parent="Coins" instance=ExtResource("5_iywne")]
-position = Vector2(-825, 141)
+position = Vector2(-825, 121)
 
 [node name="Coin26" parent="Coins" instance=ExtResource("5_iywne")]
-position = Vector2(-793, 143)
+position = Vector2(-785, 118)
 
 [node name="Coin27" parent="Coins" instance=ExtResource("5_iywne")]
 position = Vector2(-756, 141)
@@ -729,11 +729,10 @@ horizontal_alignment = 2
 [node name="ProgressBars" type="Node" parent="GameManager"]
 
 [node name="Health" type="TextureProgressBar" parent="GameManager/ProgressBars"]
-offset_left = 231.0
-offset_top = 69.0
-offset_right = 263.0
-offset_bottom = 78.0
-rotation = 3.14159
+offset_left = 6.0
+offset_top = 22.0
+offset_right = 38.0
+offset_bottom = 31.0
 scale = Vector2(7, 7)
 step = 0.5
 value = 70.0
