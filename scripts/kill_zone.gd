@@ -19,6 +19,6 @@ func player_died(knight: Node2D, killed=false) -> void:
 	timer.start()
 
 func _on_timer_timeout() -> void:
-	Global.shipDocked = false
-	Global.onShip = true
+	Engine.time_scale = 1
+	Global.Knight_SPEED = 130
 	get_tree().reload_current_scene()

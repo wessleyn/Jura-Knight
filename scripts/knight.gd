@@ -37,7 +37,6 @@ func enableMovement(direction):
 		
 
 func _ready() -> void:
-	#mark the starting point as the highest distance moved
 	highestPosition = position.x
 	prevPosition = highestPosition
 
@@ -50,9 +49,11 @@ func _physics_process(delta: float) -> void:
 	var debugKey = Input.is_action_just_pressed("ui_text_backspace")
 	if(debugKey): isKilled = true
 	
+	print("Speed, ", Global.Knight_SPEED)
+
 	if isKilled:
 		getKilled()
-	elif Global.onShip and bool(direction) and !Global.shipDocked:
+	elif Global.onShip and not Global.shipDocked:
 		ship.position.x  +=  direction * SHIP_SPEED *  delta
 		position.x += direction * SHIP_SPEED * delta 
 	else:
@@ -64,9 +65,9 @@ func _physics_process(delta: float) -> void:
 		highestPosition = position.x
 	
 	if(position.x != prevPosition):
-		# increase thirst by distance 'moved' irregardless of direction
-		game_manager.increaseThirst(0.0625) 
-		prevPosition = position.x # mark the new previous position 
+		if(not Global.onShip):
+			game_manager.increaseThirst(0.0625) 
+		prevPosition = position.x
 
 var tookHealing = false
 var isKilled = false

@@ -21,7 +21,7 @@ func updateScore ():
 
 func updateStats():
 	health_bar.value = int(health)
-	thirst_bar.value = int(thirst + 1)
+	thirst_bar.value = int(thirst)
 	coin_label.text = str(coins)
 
 func addPoint(point):
@@ -35,21 +35,21 @@ func addCoin():
 	updateStats()
 
 func increaseThirst(point):
-	# TODO: slow down movement when thirst reaches 100
 	thirst += point
+	Global.Knight_SPEED -= point 
 	updateStats()
 	
 func relieveThirst(point):
-	# TODO: increase movement speed as thirst  lowers
 	thirst -= point
+	Global.Knight_SPEED += point
 	updateStats()
 	
-func takeDamage(point):
+func takeDamage(point, body):
 	health -= point
 	updateStats()
-	if(health <= 0): pass #die
+	if(health <= 0): 
+		body.getKilled()
 	
 func takeHealing(point):
 	health += point
-	if(health >= 0): pass # TODO: hange health bar from green to purple
 	updateStats()
