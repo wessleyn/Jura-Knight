@@ -774,3 +774,6 @@ theme_override_font_sizes/font_size = 32
 text = "100
 
 "
+
+[node name="Coin" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(-936, 124)
