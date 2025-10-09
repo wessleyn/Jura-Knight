@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	else:
 		Global.onShip = false
 	
-	var unDock = Input.is_action_just_pressed("udock")
+	var unDock = Input.is_action_just_pressed("undock")
 	
 	# Nudge ship out of dock
 	if(Global.shipDocked and unDock):

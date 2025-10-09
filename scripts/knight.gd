@@ -49,8 +49,6 @@ func _physics_process(delta: float) -> void:
 	var debugKey = Input.is_action_just_pressed("ui_text_backspace")
 	if(debugKey): isKilled = true
 	
-	print("Speed, ", Global.Knight_SPEED)
-
 	if isKilled:
 		getKilled()
 	elif Global.onShip and not Global.shipDocked:

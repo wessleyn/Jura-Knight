@@ -13,7 +13,11 @@ var thirst = 0
 func _ready():
 	updateScore()
 	updateStats()
-	
+
+func _process(delta: float) -> void:
+	if(Input.is_action_just_pressed("exit")):
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		
 func updateScore ():
 	score_label.text = "Highest Score: %d\nScore: %d" % [
 		int(Global.high_score), int(score)

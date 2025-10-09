@@ -1,11 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bb3nhlcby07ed"]
+[gd_scene load_steps=15 format=3 uid="uid://bb3nhlcby07ed"]
 
 [ext_resource type="Script" uid="uid://d3y5ln2cbp21x" path="res://scripts/main_menu.gd" id="1_bqqt6"]
-[ext_resource type="Texture2D" uid="uid://pqnlp0ntus6o" path="res://assets/images/screenshot.png" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://dsiqyjrivv6bh" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://ciwadjtr2l52b" path="res://scripts/audio_control.gd" id="3_bqqt6"]
+[ext_resource type="Script" uid="uid://df5petpfiilnn" path="res://scripts/key_maps.gd" id="4_wu84c"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ekxnf"]
+load_path = "res://.godot/imported/screenshot.png-5eaf4284eec537a3ef132357ae29696c.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqqt6"]
-texture = ExtResource("1_ekxnf")
+texture = SubResource("CompressedTexture2D_ekxnf")
 modulate_color = Color(0.329158, 0.329158, 0.329158, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
@@ -37,6 +41,27 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ekxnf"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_bqqt6"]
+color = Color(0.372455, 0.567747, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wu84c"]
+color = Color(0.372455, 0.567747, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+bg_color = Color(0.403922, 0.607843, 0.886275, 0.188235)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 9.0
+expand_margin_right = 9.0
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 8
@@ -50,7 +75,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bqqt6")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Background" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,7 +88,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_bqqt6")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Title" type="Label" parent="Background"]
 layout_mode = 0
 offset_left = 245.0
 offset_top = 41.0
@@ -75,7 +100,7 @@ theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 64
 text = "Jura Knight"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -90,7 +115,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 9
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Start" type="Button" parent="Menu"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -106,7 +131,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
 text = "Start Game"
 
-[node name="Options" type="Button" parent="VBoxContainer"]
+[node name="Options" type="Button" parent="Menu"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -122,7 +147,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
 text = "Options"
 
-[node name="exit" type="Button" parent="VBoxContainer"]
+[node name="exit" type="Button" parent="Menu"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -139,6 +164,202 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
 text = "Exit
 "
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[node name="Options" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.64
+offset_left = -329.0
+offset_top = -204.0
+offset_right = 315.0
+offset_bottom = 239.44
+grow_vertical = 2
+
+[node name="Options" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 73.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 52
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="Label" parent="Options"]
+offset_left = 81.0
+offset_top = 98.0
+offset_right = 166.0
+offset_bottom = 185.0
+theme_override_font_sizes/font_size = 30
+text = "Music
+"
+
+[node name="MusicControl" type="HSlider" parent="Options"]
+offset_left = 204.0
+offset_top = 96.0
+offset_right = 618.0
+offset_bottom = 143.0
+theme_override_styles/slider = SubResource("StyleBoxLine_ekxnf")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_bqqt6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_wu84c")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("3_bqqt6")
+audio_bus_name = "Music"
+
+[node name="SFX" type="Label" parent="Options"]
+offset_left = 83.0
+offset_top = 164.0
+offset_right = 168.0
+offset_bottom = 251.0
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+
+[node name="SFXControl" type="HSlider" parent="Options"]
+offset_left = 201.0
+offset_top = 162.0
+offset_right = 615.0
+offset_bottom = 209.0
+theme_override_styles/slider = SubResource("StyleBoxLine_ekxnf")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_bqqt6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_wu84c")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("3_bqqt6")
+audio_bus_name = "SFX"
+
+[node name="KeyMaps" type="VBoxContainer" parent="Options"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 210.0
+offset_right = 622.0
+offset_bottom = 408.0
+script = ExtResource("4_wu84c")
+
+[node name="Left" type="HBoxContainer" parent="Options/KeyMaps"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 320
+
+[node name="Label" type="Label" parent="Options/KeyMaps/Left"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Move Left"
+
+[node name="Button" type="Button" parent="Options/KeyMaps/Left"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+text = "Change
+"
+
+[node name="Right" type="HBoxContainer" parent="Options/KeyMaps"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 377
+
+[node name="Label" type="Label" parent="Options/KeyMaps/Right"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Right"
+
+[node name="Button" type="Button" parent="Options/KeyMaps/Right"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+text = "Change
+"
+
+[node name="Jump" type="HBoxContainer" parent="Options/KeyMaps"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 377
+
+[node name="Label" type="Label" parent="Options/KeyMaps/Jump"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Jump"
+
+[node name="Button" type="Button" parent="Options/KeyMaps/Jump"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+text = "Change
+"
+
+[node name="Attack" type="HBoxContainer" parent="Options/KeyMaps"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 363
+
+[node name="Label" type="Label" parent="Options/KeyMaps/Attack"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Attack"
+
+[node name="Button" type="Button" parent="Options/KeyMaps/Attack"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+text = "Change
+"
+
+[node name="Undock" type="HBoxContainer" parent="Options/KeyMaps"]
+layout_mode = 2
+theme_override_constants/separation = 349
+
+[node name="Label" type="Label" parent="Options/KeyMaps/Undock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Undock
+"
+
+[node name="Button" type="Button" parent="Options/KeyMaps/Undock"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+text = "Change
+"
+
+[node name="Return" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -75.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+text = "Back"
+
+[connection signal="pressed" from="Menu/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Menu/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Menu/exit" to="." method="_on_exit_pressed"]
+[connection signal="value_changed" from="Options/MusicControl" to="Options/MusicControl" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/SFXControl" to="Options/SFXControl" method="_on_value_changed"]
+[connection signal="pressed" from="Options/Return" to="." method="_on_return_pressed"]
