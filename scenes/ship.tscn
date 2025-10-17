@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bfph26eqbyi7y" path="res://assets/images/ship.png" id="1_q631a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q631a"]
-radius = 15.9845
+radius = 12.9987
 height = 96.0186
 
 [node name="Ship" type="AnimatableBody2D"]
@@ -19,7 +19,7 @@ region_enabled = true
 region_rect = Rect2(0, 4, 64, 50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, 18)
+position = Vector2(7, 17)
 rotation = -1.58476
 shape = SubResource("CapsuleShape2D_q631a")
 

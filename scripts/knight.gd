@@ -11,6 +11,7 @@ var highestPosition = 0
 @onready var game_manager: CanvasLayer = %GameManager
 @onready var healing: AnimatedSprite2D = $Healing
 @onready var water_kill_zone: Area2D = $"../Water Kill Zone"
+@onready var collision: CollisionShape2D = $CollisionShape2D
 
 
 func enableMovement(direction):
@@ -41,17 +42,26 @@ func _ready() -> void:
 	prevPosition = highestPosition
 
 func _physics_process(delta: float) -> void:
+	if (not self):
+		pass
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
 	var direction := Input.get_axis("move_left", "move_right")
 	
+	if collision:
+		if direction == -1:
+			collision.position.x = -4
+		elif direction == 1:
+			collision.position.x = 4
+
 	var debugKey = Input.is_action_just_pressed("ui_text_backspace")
 	if(debugKey): isKilled = true
 	
 	if isKilled:
 		getKilled()
 	elif Global.onShip and not Global.shipDocked:
+		animated_sprite.play("idle")
 		ship.position.x  +=  direction * SHIP_SPEED *  delta
 		position.x += direction * SHIP_SPEED * delta 
 	else:
